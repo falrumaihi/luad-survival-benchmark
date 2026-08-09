@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luad-biomarker"
+version = "0.1.0"
+description = "Reproducible uncertainty-aware survival biomarker workflow for TCGA-LUAD"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "TCGA-LUAD study team"}]
+dependencies = []
+
+[project.optional-dependencies]
+analysis = [
+  "numpy>=2.0",
+  "pandas>=2.2",
+  "scikit-learn>=1.5",
+  "scipy>=1.13",
+  "matplotlib>=3.9",
+  "seaborn>=0.13",
+  "xgboost>=2.1",
+]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+luad-biomarker = "luad_biomarker.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+pythonpath = ["src"]
+

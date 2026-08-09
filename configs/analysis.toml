@@ -1,0 +1,72 @@
+[study]
+project = "TCGA-LUAD"
+endpoint = "overall_survival"
+literature_cutoff = "2026-08-06"
+
+[runtime]
+# Interpreter locations. Override for your machine, or set the LUAD_PYTHON
+# and LUAD_RSCRIPT environment variables to point at the executables.
+python = "python"
+rscript = "Rscript"
+r_version = "4.6.0"
+
+[paths]
+workspace = ".."
+metadata = "TCGA_TCGA-LUAD_Metadata.csv"
+raw_counts = "TCGA_TCGA-LUAD_STAR_Counts.csv"
+vst_matrix = "TCGA-LUAD_vst_normalized_matrix.csv"
+methods_audit = "TCGA-LUAD_methods_audit_table.csv"
+datasets = "Datasets"
+artifacts = "artifacts"
+
+[annotations]
+gencode_release = 36
+gencode_assembly = "GRCh38.p13"
+gencode_gtf = "external_data/gencode/gencode.v36.annotation.gtf.gz"
+gencode_source_url = "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_36/gencode.v36.annotation.gtf.gz"
+
+[cohort]
+eligible_sample_type = "Primary Tumor"
+minimum_os_days_exclusive = 0
+prefer_vial = "A"
+use_library_size_tiebreak = true
+strict_histology_primary = false
+
+[seeds]
+master = 20260806
+outer_cv = 20260807
+inner_cv = 20260808
+bootstrap = 20260809
+conformal = 20260810
+
+[validation]
+outer_folds = 5
+outer_repeats = 10
+inner_folds = 5
+bootstrap_replicates = 1000
+selection_stability_minimum = 0.60
+time_horizons_days = [365, 1095, 1825]
+candidate_panel_sizes = [8, 12, 16, 20]
+
+[[external_cohorts]]
+accession = "GSE72094"
+role = "primary_external"
+status = "prepared_and_locked_scored"
+
+[[external_cohorts]]
+accession = "GSE68465"
+role = "primary_external"
+status = "prepared_and_locked_scored"
+
+[[external_cohorts]]
+accession = "GSE31210"
+role = "secondary_early_stage"
+status = "prepared_and_locked_scored"
+
+[[excluded_resources]]
+path = "Datasets/TISCH2/ESCA_GSE154763"
+reason = "ESCA-specific single-cell reference; invalid for LUAD cell-state claims"
+
+[[excluded_resources]]
+path = "Datasets/TISCH2/ESCA_GSE160269"
+reason = "ESCC-focused single-cell reference; invalid for LUAD cell-state claims"

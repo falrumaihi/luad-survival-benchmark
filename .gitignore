@@ -1,0 +1,50 @@
+# --- Patient-level and source data: never commit -----------------------------
+TCGA_*.csv
+TCGA-LUAD_*.csv
+external_data/
+external_models/
+Datasets/
+*.rds
+*.gtf
+*.gtf.gz
+
+# --- Generated analysis output ------------------------------------------------
+# Everything under artifacts/ is reproducible from the pipeline. The model lock
+# is the exception: it defines the panel the external cohorts were scored with.
+artifacts/*
+!artifacts/lock/
+artifacts/lock/*
+!artifacts/lock/model_spec.json
+
+# --- Python -------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- R ------------------------------------------------------------------------
+.Rhistory
+.RData
+.Rproj.user/
+renv/library/
+
+# --- Editors and OS -----------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Office and rendering scratch ---------------------------------------------
+~$*
+.~lock.*#
+lo_profile*/

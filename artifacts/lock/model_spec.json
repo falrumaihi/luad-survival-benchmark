@@ -1,0 +1,60 @@
+{
+  "endpoint": "overall survival",
+  "locked_before_external_scoring": true,
+  "models": [
+    "Clinical Cox",
+    "Panel Cox",
+    "Random survival forest",
+    "Gradient boosting survival",
+    "DeepSurv",
+    "SurvivalPFN"
+  ],
+  "panel_file_sha256": "b99abe3d66064705b298d356d8ca63afebfc3696542ca13d556e257f1539f91d",
+  "panel_genes": [
+    "FAIM2",
+    "NTSR1",
+    "CPS1",
+    "KRT81",
+    "IGFBP1",
+    "FLNC",
+    "CIDEC",
+    "FBN2",
+    "CTNND2",
+    "CCL20",
+    "TFAP2A",
+    "MAGEA8"
+  ],
+  "primary_external": [
+    "GSE72094",
+    "GSE68465"
+  ],
+  "secondary_external": [
+    "GSE31210"
+  ],
+  "seed": 20260806,
+  "selection": {
+    "bootstrap_replicates": 200,
+    "cross_platform_common_features": 1232,
+    "elastic_net_l1_ratio": 0.9,
+    "events": 182,
+    "outcome_screen_features": 250,
+    "panel_genes": [
+      "FAIM2",
+      "NTSR1",
+      "CPS1",
+      "KRT81",
+      "IGFBP1",
+      "FLNC",
+      "CIDEC",
+      "FBN2",
+      "CTNND2",
+      "CCL20",
+      "TFAP2A",
+      "MAGEA8"
+    ],
+    "panel_size": 12,
+    "parallel_workers": 12,
+    "selected_alpha_one_se": 0.05970229606787651,
+    "tcga_samples": 504
+  }
+}
